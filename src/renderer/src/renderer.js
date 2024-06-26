@@ -17,7 +17,7 @@ function doAThing() {
 
   const updateHandlerBtn = document.getElementById('updateHandler')
   updateHandlerBtn?.addEventListener('click', () => {
-    window.electron.ipcRenderer.send('update')
+    window.electron.ipcRenderer.send('checkForUpdate')
   })
 }
 

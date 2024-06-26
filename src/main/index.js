@@ -2,6 +2,14 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+const { autoUpdater } = require('electron-updater')
+
+
+Object.defineProperty(app, 'isPackaged', {
+  get() {
+    return true
+  }
+})
 
 function createWindow() {
   // Create the browser window.
@@ -16,6 +24,8 @@ function createWindow() {
       sandbox: false
     }
   })
+
+  mainWindow.webContents.openDevTools()
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
@@ -33,6 +43,13 @@ function createWindow() {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+
+  autoUpdater.updateConfigPath = join(__dirname, '../../dist/win-unpacked/resources/app-update.yml')
+  autoUpdater.setFeedURL('http://127.0.0.1/win32')
+  autoUpdater.checkForUpdates()
+  autoUpdater.on('error', (err) => {
+    console.log('update check error:', err)
+  })
 }
 
 // This method will be called when Electron has finished
@@ -52,8 +69,10 @@ app.whenReady().then(() => {
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
 
-
-  ipcMain.on('update', () => console.log('update'))
+  ipcMain.on('checkForUpdate', () => {
+    console.log('checkForUpdate')
+    autoUpdater.checkForUpdates()
+  })
 
   createWindow()
 
