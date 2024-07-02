@@ -15,3 +15,12 @@ pnpm install pinia-plugin-persist -S
 ```shell
 pnpm install axios -S
 ```
+#### 安装element-plus
+```shell
+pnpm install element-plus -S
+```
+
+#### 按需引入
+```shell
+pnpm install unplugin-vue-components  unplugin-auto-import -D
+```

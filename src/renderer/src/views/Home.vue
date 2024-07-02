@@ -20,6 +20,7 @@ const login = async () => {
     home {{ store.count }}
     <button @click="store.increment">自增</button>
     <button @click="login">登陆</button>
+    <el-button type="success">Success</el-button>
   </div>
 </template>
 
