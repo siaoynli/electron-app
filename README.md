@@ -10,3 +10,8 @@ pnpm install pinia -S
 ```shell
 pnpm install pinia-plugin-persist -S
 ```
+
+#### 安装axios
+```shell
+pnpm install axios -S
+```

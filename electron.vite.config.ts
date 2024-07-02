@@ -16,6 +16,8 @@ export default defineConfig({
         '@views': resolve('src/renderer/src/views'),
         '@router': resolve('src/renderer/src/router'),
         '@store': resolve('src/renderer/src/store'),
+        '@utils': resolve('src/renderer/src/utils'),
+        '@api': resolve('src/renderer/src/api'),
         '@components': resolve('src/renderer/src/components')
       }
     },
