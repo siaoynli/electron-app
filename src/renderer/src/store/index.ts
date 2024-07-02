@@ -1,16 +1,25 @@
 import { defineStore } from 'pinia'
 
 export const useStore = defineStore('storeId', {
-  state: () =>{
+  state: () => {
     return {
-      count:0
+      count: 0,
     }
   },
   getters: {},
-  actions:{
-    increment(){
+  actions: {
+    increment() {
       this.count++
     }
+  },
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        key: 'count',
+        storage: localStorage
+      }
+    ]
   }
 })
 
