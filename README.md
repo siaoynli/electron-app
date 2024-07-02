@@ -24,3 +24,8 @@ pnpm install element-plus -S
 ```shell
 pnpm install unplugin-vue-components  unplugin-auto-import -D
 ```
+
+#### 引入图标
+```shell
+pnpm install @element-plus/icons-vue
+```
