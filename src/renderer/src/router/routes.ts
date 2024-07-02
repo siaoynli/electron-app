@@ -1,4 +1,4 @@
 export const routes = [
-  { path: '/', component: () => import('@view/Home.vue') },
-  { path: '/about', component: () => import('@view/About.vue') }
+  { path: '/', component: () => import('@views/Home.vue') },
+  { path: '/about', component: () => import('@views/About.vue') }
 ]

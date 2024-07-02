@@ -4,6 +4,7 @@ export const useStore = defineStore('storeId', {
   state: () => {
     return {
       count: 0,
+      username: 'test'
     }
   },
   getters: {},
@@ -16,7 +17,7 @@ export const useStore = defineStore('storeId', {
     enabled: true,
     strategies: [
       {
-        key: 'count',
+        paths:["count"],
         storage: localStorage
       }
     ]
