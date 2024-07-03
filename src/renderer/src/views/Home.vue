@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import PasswordForm from '@views/login/components/PasswordForm.vue'
 </script>
 
 <template>
@@ -29,14 +29,16 @@
           </div>
         </div>
         <el-tabs>
-          <el-tab-pane label="账号登录" lazy>User</el-tab-pane>
+          <el-tab-pane label="账号登录" lazy>
+            <PasswordForm />
+          </el-tab-pane>
           <el-tab-pane label="手机号登录" lazy>Config</el-tab-pane>
         </el-tabs>
         <template v-if='true'>
           <el-divider>其他登录方式</el-divider>
           <div class="login-oauth">
             <!--微信按钮-->
-            <el-button type="success" circle  size="large">
+            <el-button type="success" circle size="large">
               <el-icon size="large">
                 <ChatDotRound />
               </el-icon>
@@ -129,35 +131,41 @@
   z-index: 1;
 }
 
-.login-main{
-  flex:1;
+.login-main {
+  flex: 1;
   display: flex;
   overflow: auto;
 }
-.login-form{
-  width:400px;
+
+.login-form {
+  width: 400px;
   margin: auto;
-  padding:80px 0 0 0;
+  padding: 80px 0 0 0;
 }
-.login-header{
+
+.login-header {
   margin-bottom: 40px;
 }
-.login-header .login-img{
+
+.login-header .login-img {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.login-header .login-img img{
-  width:40px;
+
+.login-header .login-img img {
+  width: 40px;
   height: 40px;
   vertical-align: bottom;
-  margin-right:10px;
+  margin-right: 10px;
 }
-.login-header .login-img label{
-  font-size:26px;
+
+.login-header .login-img label {
+  font-size: 26px;
   font-weight: bold;
 }
-.login-oauth{
+
+.login-oauth {
   display: flex;
   justify-content: space-around;
 }
