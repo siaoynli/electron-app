@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onBeforeMount, reactive, ref } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
-import { captchaImage } from '@api/login'
-import type { ValidateFieldsError } from 'async-validator'
+import { captchaImage, loginByJson } from '@api/login'
+
 
 interface RuleForm {
   password: string //密码（需要使用AES加密）
@@ -53,9 +53,16 @@ const getCaptcha = async () => {
 
 //点击登陆
 const handleLogin = async () => {
-  await ruleFormRef.value?.validate((isValid) => {
+  await ruleFormRef.value?.validate(async (isValid) => {
     if (isValid) {
-      //TODO 登录
+      const res = await loginByJson({
+        username: ruleForm.username,
+        password: ruleForm.password,
+        key: ruleForm.key,
+        captcha: ruleForm.captcha
+      })
+
+      console.log(res)
     } else {
       console.log('没有通过校验')
 
